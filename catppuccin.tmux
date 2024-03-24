@@ -171,8 +171,8 @@ build_window_format() {
 
     if [ "$window_number_position" = "right" ]
     then
-      local show_left_separator="#[fg=$background,bg=$thm_bg,nobold,nounderscore,noitalics]$window_left_separator"
-      local show_right_separator="#[fg=$color,bg=$thm_bg]$window_right_separator"
+      local show_left_separator="#[fg=$background,bg=default,nobold,nounderscore,noitalics]$window_left_separator"
+      local show_right_separator="#[fg=$color,bg=default]$window_right_separator"
     fi
 
     if [ "$window_number_position" = "left" ]
@@ -206,12 +206,12 @@ build_status_module() {
 
   if [ "$status_fill" = "icon" ]
   then
-    local show_left_separator="#[fg=$color,bg=$thm_gray,nobold,nounderscore,noitalics]$status_left_separator"
+    local show_left_separator="#[fg=$color,bg=default,nobold,nounderscore,noitalics]$status_left_separator"
 
     local show_icon="#[fg=$thm_bg,bg=$color,nobold,nounderscore,noitalics]$icon "
     local show_text="#[fg=$thm_fg,bg=$thm_gray] $text"
 
-    local show_right_separator="#[fg=$thm_gray,bg=$thm_bg,nobold,nounderscore,noitalics]$status_right_separator"
+    local show_right_separator="#[fg=$thm_gray,bg=default,nobold,nounderscore,noitalics]$status_right_separator"
 
     if [ "$status_connect_separator" = "yes" ]
     then
@@ -219,8 +219,8 @@ build_status_module() {
       local show_right_separator="#[fg=$thm_gray,bg=$thm_gray,nobold,nounderscore,noitalics]$status_right_separator"
 
     else
-      local show_left_separator="#[fg=$color,bg=$thm_bg,nobold,nounderscore,noitalics]$status_left_separator"
-      local show_right_separator="#[fg=$thm_gray,bg=$thm_bg,nobold,nounderscore,noitalics]$status_right_separator"
+      local show_left_separator="#[fg=$color,bg=default,nobold,nounderscore,noitalics]$status_left_separator"
+      local show_right_separator="#[fg=$thm_gray,bg=default,nobold,nounderscore,noitalics]$status_right_separator"
     fi
 
   fi
@@ -258,7 +258,7 @@ build_status_module() {
 
   if [ $(($index)) -eq 0  ]
   then
-      local show_left_separator="#[fg=$color,bg=$thm_bg,nobold,nounderscore,noitalics]$status_left_separator"
+      local show_left_separator="#[fg=$color,bg=default,nobold,nounderscore,noitalics]$status_left_separator"
   fi
 
   echo "$show_left_separator$show_icon$show_text$show_right_separator"
@@ -379,7 +379,7 @@ main() {
   setw window-status-separator "$window_status_separator"
 
   setw window-status-activity-style "fg=${thm_fg},bg=${thm_bg},none"
-  setw window-status-style "fg=${thm_fg},bg=${thm_bg},none"
+  setw window-status-style "fg=${thm_fg},bg=default,none"
 
   local window_left_separator=$(get_tmux_option "@catppuccin_window_left_separator" "█")
   local window_right_separator=$(get_tmux_option "@catppuccin_window_right_separator" "█")
